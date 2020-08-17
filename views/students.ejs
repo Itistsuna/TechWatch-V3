@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet TechWatch-V3</title>
+</head>
+
+<body>
+    <!-- <header class="navigation">
+        <h1 class="titre">group generator</h1>
+        <nav>
+            <ul class="head">
+                <li class="headLi">
+                    <a href="http://localhost:3000/students"> students</a>
+                </li>
+                <li class="headLi">
+                    <a href="http://localhost:3000/groups"> groups</a>
+                </li>
+            </ul>
+        </nav>
+    </header> -->
+
+    <form action="/students" method="POST">
+        <h1 class="textStudent">List of students</h1>
+
+        <ul>
+            <%for(var i = 0 ; i < students.length ; i++) {%>
+
+            <li><%= students[i] %></li>
+
+            <% } %>
+        </ul>
+        <input type="text" name="name" placeholder="name" /> <br />
+        <button>add</button>
+    </form>
+</body>
+
+</html>
