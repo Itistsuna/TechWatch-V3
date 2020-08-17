@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const fetch = require('node-fetch');
-const methodOverride = require('method-override')
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
