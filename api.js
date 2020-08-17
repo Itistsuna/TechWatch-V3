@@ -54,20 +54,52 @@ app.get('/students', async (req, res) => {
 })
 
 
-// ROUTE DELETE STUDENTS ------------------------------------------------------------------------------------------
+// ROUTE DELETE STUDENTS PARAMS ------------------------------------------------------------------------------------------
 
-app.delete('/students', async (req, res) => {
+app.delete('/students/:name', async (req, res) => {
     try {
-        client.db('TechWatch-V3').collection('Students').deleteOne({name: req.body.name})
+        console.log({name: req.params.name})
+        client.db('TechWatch-V3').collection('Students').deleteOne({name: req.params.name})
         res.send('Student delete')
-
     } catch (error) {
         console.log(error)
     }
 })
 
+// ROUTE DELETE STUDENTS ------------------------------------------------------------------------------------------
+
+app.delete('/students', async (req,res)=> {
+    try {
+        const students = await client.db('TechWatch-V3').collection('Students').find().toArray()
+        students.forEach((element)=>{
+            console.log("Le nom " + element.name + "a bien été supprimé")
+            client.db('TechWatch-V3').collection('Students').deleteOne(element)
+        })
+        res.send('Tout les noms ont bien été supprimé')
+    } catch (error){
+      console.log(error);  
+    }
+})
+
+// ROUTE POST GROUPS ------------------------------------------------------------------------------------------
 
 
+app.post('/groups', async(req,res)=>{
+    try {
+        class Groups {
+            constructor(){
+                this.subject = req.body.subject
+                this.deadline = req.body.deadline
+                this.student = req.body.student
+            }
+        }
+        let nGroupe = new Groups
+        client.db('TechWatch-V3').collection('Groups').insertOne({nGroupe})
+        res.send('Le groupe a bien été enregistré')
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 
