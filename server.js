@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const fetch = require('node-fetch');
+const methodOverride = require('method-override')
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,7 +35,7 @@ app.get('/students', async function(req, res) {
 
 app.post('/students', async (req, res) => {
 	fetch('http://localhost:8080/Students', {
-		method: 'post',
+		method: 'delete',
 		headers: {
 			'Content-Type': 'application/json'
 		},
@@ -46,14 +47,10 @@ app.post('/students', async (req, res) => {
 // REQUETE DELETE STUDENT  ------------------------------------------------------------------------------
 
 app.post('/students/delete', async (req, res) => {
-    fetch('http://localhost:8080/Students/:name'),{
-        method: 'DELETE',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-        body: JSON.stringify({name : req.body.name})
-    }
-    res.redirect('http://localhost:3000/students');
+    return fetch(`http://localhost:8080/Students/${req.body.name}`, {
+        method: 'delete',
+    }).then(res.redirect('http://localhost:3000/students')
+    )
 })
 
 // REQUETE GET GROUP  ------------------------------------------------------------------------------
