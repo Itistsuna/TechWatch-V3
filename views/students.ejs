@@ -21,19 +21,22 @@
             </ul>
         </nav>
     </header>
+    <h1 class="textStudent">List of students</h1>
 
+    <ul>
+        <%for(var i = 0 ; i < students.length ; i++) {%>
+
+        <li><%= students[i] %></li>
+
+        <% } %>
+    </ul>
     <form action="/students" method="POST">
-        <h1 class="textStudent">List of students</h1>
-
-        <ul>
-            <%for(var i = 0 ; i < students.length ; i++) {%>
-
-            <li><%= students[i] %></li>
-
-            <% } %>
-        </ul>
         <input type="text" name="name" placeholder="name" /> <br />
-        <button>add</button>
+        <input type="submit" value="add">
+    </form>
+    <form action="/students/delete" method="POST">
+        <input type="text" name="name" placeholder="name" /> <br />
+        <input type="submit" value="Supprimer">
     </form>
 </body>
 

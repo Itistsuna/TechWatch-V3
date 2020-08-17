@@ -21,27 +21,17 @@
             </ul>
         </nav>
     </header>
+    <h1 class="textGroups">List of groups</h1>
+        <%for(var i = 0 ; i < groups.length ; i++) {%>
+        <h3><%- groups[i].nGroupe.subject %></h3>
+        <p>Students affiliate : <%- groups[i].nGroupe.student %></p>
+        <p> When : <%- groups[i].nGroupe.deadline %></p>
+        <% } %>
     <form action="/groups" method="post">
-        <h1 class="textGroups">List of groups</h1>
-
-
-        
-            <%for(var i = 0 ; i < groups.length ; i++) {%>
-
-            <h3><%- groups[i].nGroupe.subject %></h3>
-            <p>Students affiliate : <%- groups[i].nGroupe.student %></p>
-            <p> When : <%- groups[i].nGroupe.deadline %></p>
-
-
-            <% } %>
-        
-
-        <div class="btn">
-            <input type="text" name="projectName" placeholder="Project Name" />
-            <input type="text" name="groupMembers" placeholder="Group Members" />
-        </div>
-        <br />
-        <button>add</button>
+        <input type="text" name="projectName" placeholder="Project Name" >
+        <input type="text" name="groupMembers" placeholder="Group Members" >
+        <input type="text" name="deadline" placeholder="Deadline">
+        <input type="submit" value="Generate">
     </form>
 
 </body>

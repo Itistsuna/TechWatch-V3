@@ -58,8 +58,7 @@ app.get('/students', async (req, res) => {
 
 app.delete('/students/:name', async (req, res) => {
     try {
-        console.log({name: req.params.name})
-        client.db('TechWatch-V3').collection('Students').deleteOne({name: req.params.name})
+        client.db('TechWatch-V3').collection('Students').deleteOne({name: req.body.name})
         res.send('Student delete')
     } catch (error) {
         console.log(error)
