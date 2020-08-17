@@ -101,7 +101,18 @@ app.post('/groups', async(req,res)=>{
     }
 })
 
+// ROUTE GET GROUPS ------------------------------------------------------------------------------------------
 
+app.get('/groups', async (req, res) => {
+
+    try {
+        const groups = await client.db('TechWatch-V3').collection('Groups').find().toArray()
+        res.json(groups)
+
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 
