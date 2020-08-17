@@ -34,7 +34,7 @@ app.get('/students', async function(req, res) {
 
 app.post('/students', async (req, res) => {
 	fetch('http://localhost:8080/Students', {
-		method: 'delete',
+		method: 'post',
 		headers: {
 			'Content-Type': 'application/json'
 		},
