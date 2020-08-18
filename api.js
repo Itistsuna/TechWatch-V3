@@ -12,10 +12,8 @@ app.use(
 );
 
 async function bdd() {
-
     try {
         await client.connect()
-
     } catch (error) {
         console.log(error)
     }
@@ -26,7 +24,6 @@ bdd()
 // ROUTE POST STUDENTS ------------------------------------------------------------------------------------------
 
 app.post('/students', async (req, res) => {
-
     try {
         await client.db('TechWatch-V3').collection('Students').insertOne({
             name: req.body.name

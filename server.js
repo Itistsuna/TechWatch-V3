@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const fetch = require('node-fetch');
+const alert = require('alert');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -38,19 +39,18 @@ app.post('/students', async (req, res) => {
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({name : req.body.name})
-    });
+		body: JSON.stringify({ name: req.body.name })
+	});
 	res.redirect('http://localhost:3000/students');
 });
 
 // REQUETE DELETE STUDENT  ------------------------------------------------------------------------------
 
 app.post('/students/delete', async (req, res) => {
-    return fetch(`http://localhost:8080/Students/${req.body.name}`, {
-        method: 'delete',
-    }).then(res.redirect('http://localhost:3000/students')
-    )
-})
+	return fetch(`http://localhost:8080/Students/${req.body.name}`, {
+		method: 'delete'
+	}).then(res.redirect('http://localhost:3000/students'));
+});
 
 // REQUETE GET GROUP  ------------------------------------------------------------------------------
 
@@ -65,8 +65,46 @@ app.get('/groups', async function(req, res) {
 });
 
 // REQUETE POST GROUP ------------------------------------------------------------------------------
-
-// app.post()
+app.post('/groups', async function(req, res) {
+	if (req.body.subject != '') {
+		if (req.body.student != '') {
+			if (req.body.deadline != '') {
+				let students = await reading();
+				let name = [];
+				var index = students.length;
+				for (let i = 0; i < req.body.student; i++) {
+					random = Math.floor(Math.random() * index);
+					name1 = students[random];
+					name.push(name1);
+					students.splice(random, 1);
+					index = students.length;
+				}
+				class Groups {
+					constructor() {
+						this.subject = req.body.subject;
+						this.deadline = req.body.deadline;
+						this.student = name;
+					}
+				}
+				let nGroupe = new Groups();
+				await fetch('http://localhost:8080/groups', {
+					method: 'post',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(nGroupe)
+				});
+				res.redirect('http://localhost:3000/groups');
+			} else {
+				alert('Deadline manquante');
+			}
+		} else {
+			alert("Nombres d'étudiants manquants");
+		}
+	} else {
+		alert('Sujet manquant');
+	}
+});
 
 // INITIALISATION SERVER ------------------------------------------------------------------------------
 
