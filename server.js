@@ -47,9 +47,10 @@ app.post('/students', async (req, res) => {
 // REQUETE DELETE STUDENT  ------------------------------------------------------------------------------
 
 app.post('/students/delete', async (req, res) => {
-	return fetch(`http://localhost:8080/Students/${req.body.name}`, {
+	await fetch(`http://localhost:8080/Students/${req.body.name}`, {
 		method: 'delete'
-	}).then(res.redirect('http://localhost:3000/students'));
+	})
+	res.redirect('http://localhost:3000/students');
 });
 
 // REQUETE GET GROUP  ------------------------------------------------------------------------------
@@ -105,9 +106,25 @@ app.post('/groups', async function(req, res) {
 		alert('Sujet manquant');
 	}
 });
+// GET HISTORIQUE  ------------------------------------------------------------------------------
+
+app.get('/historique', async function(req,res){
+	let groups = await readingGroups();
+	let tabG = [];
+	for (let i = 0; i < groups.length; i++) {
+		tabG.push(groups[i]);
+	}
+	res.render('historique.ejs', { groups: tabG })
+})
+
+// GET HOME  ------------------------------------------------------------------------------
+
+app.get('/', async function(req,res){
+	res.render('home.ejs')
+})
 
 // INITIALISATION SERVER ------------------------------------------------------------------------------
 
 app.listen(3000, function() {
-	console.log('server connected');
+	console.log('server on at http://localhost:3000');
 });
