@@ -20,6 +20,18 @@ async function readingGroups() {
 	return respons;
 }
 
+async function date(){
+	let group = await readingGroups()
+	let dates = []
+	group.forEach(element => {
+		dates.push(element.nGroupe.deadline)
+	});
+	date2 = dates.sort((a, b) => b.date - a.date)
+	console.log(dates)
+	console.log(date2);
+}
+date()
+
 // REQUETE GET STUDENT ------------------------------------------------------------------------------
 
 app.get('/students', async function(req, res) {
