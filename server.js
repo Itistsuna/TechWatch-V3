@@ -26,26 +26,38 @@ async function date() {
 		element.nGroupe.deadline = new Date(element.nGroupe.deadline)
 	});
 	group.sort((a, b) => b.nGroupe.deadline - a.nGroupe.deadline);
-	group.forEach((element) => {
-		year = element.nGroupe.deadline.getFullYear();
-		month = element.nGroupe.deadline.getMonth() + 1;
-		dt = element.nGroupe.deadline.getDate();
-		if (dt < 10) {
-			dt = '0' + dt;
-		}
-		if (month < 10) {
-			month = '0' + month;
-		}
-		element.nGroupe.deadline = (year + '-' + month + '-' + dt);
-	});
 	return group;
 }
-date();
+
+async function etudiantTrié() {
+	let etudiants = await reading()
+	let groupe = await readingGroups()
+	for (i = 0; i < etudiants.length; i++) {
+		for (let index = 0; index < groupe.length; index++) {
+			for (let nIndex = 0; nIndex < groupe[index].nGroupe.student.length; nIndex++) {
+				if (etudiants.length == 0) {
+					console.log("Il n'y a plus d'étudiant");
+				} else if (etudiants[i].name == groupe[index].nGroupe.student[nIndex].name) {
+					etudiants.splice(i, 1);
+					if (i != 0) {
+						i = i - 1;
+						break;
+					} else {
+						i = 0;
+						break;
+					}
+				}
+			}
+		}
+		return etudiants
+	}
+	console.log(etudiants);
+}
 
 // REQUETE GET STUDENT ------------------------------------------------------------------------------
 
 app.get('/students', async function(req, res) {
-	let students = await reading();
+	let students = await etudiantTrié();
 	let tab = [];
 	for (let i = 0; i < students.length; i++) {
 		tab.push(students[i].name);
@@ -91,7 +103,7 @@ app.post('/groups', async function(req, res) {
 	if (req.body.subject != '') {
 		if (req.body.student != '') {
 			if (req.body.deadline != '') {
-				let students = await reading();
+				let students = await etudiantTrié();
 				let name = [];
 				var index = students.length;
 				for (let i = 0; i < req.body.student; i++) {
@@ -142,11 +154,12 @@ app.get('/historique', async function(req, res) {
 
 app.get('/', async function(req, res) {
 	let groups = await date();
+	let students = await etudiantTrié()
 	let tabG = [];
 	for (let i = 0; i < groups.length; i++) {
 		tabG.push(groups[i]);
 	}
-	res.render('home.ejs', { groups: tabG });
+	res.render('home.ejs', { groups: tabG , students: students});
 });
 
 // INITIALISATION SERVER ------------------------------------------------------------------------------

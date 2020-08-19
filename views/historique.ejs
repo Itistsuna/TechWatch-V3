@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historique ( Tech-Watch Assignator )</title>
 </head>
+
 <body>
     <header>
         <h1>My Tech-Watch Assignator</h1>
@@ -17,21 +19,68 @@
     <main>
         <div class="nextTech">
             <h2>Next Tech-Watch</h2>
-            <% const nDate = new Date().toLocaleString();console.log(nDate);%> 
+            <% const nDate = new Date();%>
+            <%groups.forEach(element => {%>
+            <%if (nDate < element.nGroupe.deadline) {%>
+            <h3><%- element.nGroupe.subject %></h3>
+            <p>Students affiliate :
+                <% for (let index = 0; index < element.nGroupe.student.length - 1; index++) {%>
+                    <%- element.nGroupe.student[index].name %> - - -
+                <%}%>
+                    <%- element.nGroupe.student[element.nGroupe.student.length - 1].name %>
+            </p>
+                    <% year = element.nGroupe.deadline.getFullYear();%>
+             	    <% month = element.nGroupe.deadline.getMonth() + 1;%>
+             	    <% dt = element.nGroupe.deadline.getDate();%>
+             	    <% if (dt < 10) {%>
+             	        <% 	dt = '0' + dt;%>
+             	    <% }%>
+             	    <% if (month < 10) {%>
+             	        <% 	month = '0' + month;%>
+             	    <% }%>
+             	    <% element.nGroupe.deadline = (year + '-' + month + '-' + dt);%>
+            <p>When : <%- element.nGroupe.deadline%></p>
+            <%}%>
+                    <%});%>
         </div>
         <div class="pastTech">
             <h2>Past Tech</h2>
-        </div>
+            <%groups.forEach(element => {%>
+            <% if (nDate > element.nGroupe.deadline){ %>
+            <h3><%- element.nGroupe.subject %></h3>
+            <p>Students affiliate :
+                <% for (let index = 0; index < element.nGroupe.student.length - 1; index++) {%>
+                    <%- element.nGroupe.student[index].name %> - - -
+                <%}%>
+                    <%- element.nGroupe.student[element.nGroupe.student.length - 1].name %>
+            </p>
+            <% year = element.nGroupe.deadline.getFullYear();%>
+             	    <% month = element.nGroupe.deadline.getMonth() + 1;%>
+             	    <% dt = element.nGroupe.deadline.getDate();%>
+             	    <% if (dt < 10) {%>
+             	        <% 	dt = '0' + dt;%>
+             	    <% }%>
+             	    <% if (month < 10) {%>
+             	        <% 	month = '0' + month;%>
+             	    <% }%>
+             	    <% element.nGroupe.deadline = (year + '-' + month + '-' + dt);%>
+            <p>When : <%- element.nGroupe.deadline%></p>
+            <%}%>
+                </div>
+            <%})%>
+
+
     </main>
     <footer>
         <div class="copyright">
             <p>Copyright: Alban Meurice & Thomas Jamais</p>
-             <div class="container">
-                 <p class="contact">Contact:</p>
-                 <p class="contact1">korvin.meurice@gmail.com</p>
-                 <p class="contact2">thomas.jamais95@gmail.com</p>
-             </div>
+            <div class="container">
+                <p class="contact">Contact:</p>
+                <p class="contact1">korvin.meurice@gmail.com</p>
+                <p class="contact2">thomas.jamais95@gmail.com</p>
+            </div>
         </div>
     </footer>
 </body>
+
 </html>

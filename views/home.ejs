@@ -35,6 +35,11 @@
         </div>
         <div class="containerStudent">
             <p>List of students they will must do a tech-watch soon:</p>
+            <ol>
+                <% students.forEach(element => {%>
+                    <li><%- element.name%></li>
+                <%});%>
+            </ol>
         </div>
     </main>
 </body>
