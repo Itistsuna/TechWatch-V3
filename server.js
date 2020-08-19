@@ -20,17 +20,27 @@ async function readingGroups() {
 	return respons;
 }
 
-async function date(){
-	let group = await readingGroups()
-	let dates = []
-	group.forEach(element => {
-		dates.push(element.nGroupe.deadline)
+async function date() {
+	let group = await readingGroups();
+	group.forEach((element) => {
+		element.nGroupe.deadline = new Date(element.nGroupe.deadline)
 	});
-	date2 = dates.sort((a, b) => b.date - a.date)
-	console.log(dates)
-	console.log(date2);
+	group.sort((a, b) => b.nGroupe.deadline - a.nGroupe.deadline);
+	group.forEach((element) => {
+		year = element.nGroupe.deadline.getFullYear();
+		month = element.nGroupe.deadline.getMonth() + 1;
+		dt = element.nGroupe.deadline.getDate();
+		if (dt < 10) {
+			dt = '0' + dt;
+		}
+		if (month < 10) {
+			month = '0' + month;
+		}
+		element.nGroupe.deadline = (year + '-' + month + '-' + dt);
+	});
+	return group;
 }
-date()
+date();
 
 // REQUETE GET STUDENT ------------------------------------------------------------------------------
 
@@ -61,20 +71,20 @@ app.post('/students', async (req, res) => {
 app.post('/students/delete', async (req, res) => {
 	await fetch(`http://localhost:8080/Students/${req.body.name}`, {
 		method: 'delete'
-	})
+	});
 	res.redirect('http://localhost:3000/students');
 });
 
 // REQUETE GET GROUP  ------------------------------------------------------------------------------
 
 app.get('/groups', async function(req, res) {
-	let groups = await readingGroups();
+	let groups = await date()
 	let tabG = [];
 	for (let i = 0; i < groups.length; i++) {
 		tabG.push(groups[i]);
 	}
 
-	res.render('groups.ejs', { groups: tabG });
+	res.render('groups.ejs', { groups: tabG , date: date});
 });
 
 // REQUETE POST GROUP ------------------------------------------------------------------------------
@@ -120,20 +130,20 @@ app.post('/groups', async function(req, res) {
 });
 // GET HISTORIQUE  ------------------------------------------------------------------------------
 
-app.get('/historique', async function(req,res){
+app.get('/historique', async function(req, res) {
 	let groups = await readingGroups();
 	let tabG = [];
 	for (let i = 0; i < groups.length; i++) {
 		tabG.push(groups[i]);
 	}
-	res.render('historique.ejs', { groups: tabG })
-})
+	res.render('historique.ejs', { groups: tabG });
+});
 
 // GET HOME  ------------------------------------------------------------------------------
 
-app.get('/', async function(req,res){
-	res.render('home.ejs')
-})
+app.get('/', async function(req, res) {
+	res.render('home.ejs');
+});
 
 // INITIALISATION SERVER ------------------------------------------------------------------------------
 

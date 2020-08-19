@@ -24,9 +24,12 @@
     <h1 class="textGroups">List of groups</h1>
         <%for(var i = 0 ; i < groups.length ; i++) {%>
             <h3><%- groups[i].nGroupe.subject %></h3>
-                <p>Students affiliate : <% groups[i].nGroupe.student.forEach(element => { %>
-                    <%- element.name %> - - - 
-                <% }); %></p>
+                <p>Students affiliate : 
+                    <% for (let index = 0; index < groups[i].nGroupe.student.length - 1; index++) {%>
+                        <%- groups[i].nGroupe.student[index].name %> - - -
+                    <%}%>
+                    <%- groups[i].nGroupe.student[groups[i].nGroupe.student.length - 1].name %>
+                </p>
                 <p> When : <%- groups[i].nGroupe.deadline %></p>
             <%}%>
     <form action="/groups" method="post">
