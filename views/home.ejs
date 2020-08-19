@@ -22,13 +22,20 @@
             <p>Don’t be shy and try to go on diverses part of the website !</p>
         </div>
         <div class="containerGroupe">
-            <% nom de groupe %>
-            <div class="inbox">
-                <p><span>Students affiliate:</span>  <% nom1 %> --- <% nom2 %></p>
-                <p><span>When: <% date %> </span></p>
-            </div> 
+            <%for(var i = 0 ; i < 2 ; i++) {%>
+                <h3><%- groups[i].nGroupe.subject %></h3>
+                    <p>Students affiliate : 
+                        <% for (let index = 0; index <groups[i].nGroupe.student.length - 1; index++) {%>
+                            <%- groups[i].nGroupe.student[index].name %>  - - -  
+                        <%}%>
+                        <%- groups[i].nGroupe.student[groups[i].nGroupe.student.length - 1].name %>
+                    </p>
+                    <p> When : <%- groups[i].nGroupe.deadline %></p>
+                <%}%>
         </div>
-
+        <div class="containerStudent">
+            <p>List of students they will must do a tech-watch soon:</p>
+        </div>
     </main>
 </body>
 </html>

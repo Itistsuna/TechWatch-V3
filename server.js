@@ -83,7 +83,7 @@ app.get('/groups', async function(req, res) {
 	for (let i = 0; i < groups.length; i++) {
 		tabG.push(groups[i]);
 	}
-	res.render('groups.ejs', { groups: tabG , date: date});
+	res.render('groups.ejs', { groups: tabG });
 });
 
 // REQUETE POST GROUP ------------------------------------------------------------------------------
@@ -130,7 +130,7 @@ app.post('/groups', async function(req, res) {
 // GET HISTORIQUE  ------------------------------------------------------------------------------
 
 app.get('/historique', async function(req, res) {
-	let groups = await readingGroups();
+	let groups = await date();
 	let tabG = [];
 	for (let i = 0; i < groups.length; i++) {
 		tabG.push(groups[i]);
@@ -141,7 +141,12 @@ app.get('/historique', async function(req, res) {
 // GET HOME  ------------------------------------------------------------------------------
 
 app.get('/', async function(req, res) {
-	res.render('home.ejs');
+	let groups = await date();
+	let tabG = [];
+	for (let i = 0; i < groups.length; i++) {
+		tabG.push(groups[i]);
+	}
+	res.render('home.ejs', { groups: tabG });
 });
 
 // INITIALISATION SERVER ------------------------------------------------------------------------------
