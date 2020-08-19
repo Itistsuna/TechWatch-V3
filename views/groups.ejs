@@ -22,11 +22,11 @@
         </nav>
     </header>
     <h1 class="textGroups">List of groups</h1>
-        <%for(var i = 0 ; i < groups.length ; i++) {%>
+        <%for(var i = 0 ; i < 2 ; i++) {%>
             <h3><%- groups[i].nGroupe.subject %></h3>
                 <p>Students affiliate : 
-                    <% for (let index = 0; index < groups[i].nGroupe.student.length - 1; index++) {%>
-                        <%- groups[i].nGroupe.student[index].name %> - - -
+                    <% for (let index = 0; index <groups[i].nGroupe.student.length - 1; index++) {%>
+                        <%- groups[i].nGroupe.student[index].name %>  - - -  
                     <%}%>
                     <%- groups[i].nGroupe.student[groups[i].nGroupe.student.length - 1].name %>
                 </p>

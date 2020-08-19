@@ -83,7 +83,6 @@ app.get('/groups', async function(req, res) {
 	for (let i = 0; i < groups.length; i++) {
 		tabG.push(groups[i]);
 	}
-
 	res.render('groups.ejs', { groups: tabG , date: date});
 });
 
