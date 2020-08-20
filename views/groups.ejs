@@ -17,6 +17,18 @@
         </nav>
     </header>
     <h1 class="textGroups">List of groups</h1>
+        <%groups.forEach((element) => {%>
+        <%year = element.nGroupe.deadline.getFullYear();%>
+        <%month = element.nGroupe.deadline.getMonth() + 1;%>
+        <%dt = element.nGroupe.deadline.getDate();%>
+        <%if (dt < 10) {%>
+            <%dt = '0' + dt;%>
+        <%}%>
+        <%if (month < 10) {%>
+            <%month = '0' + month;%>
+        <%}%>
+        <%element.nGroupe.deadline = (year + '-' + month + '-' + dt);%>
+        <%});%>
         <%for(var i = 0 ; i < 2 ; i++) {%>
             <h3><%- groups[i].nGroupe.subject %></h3>
                 <p>Students affiliate : 
@@ -25,6 +37,7 @@
                     <%}%>
                     <%- groups[i].nGroupe.student[groups[i].nGroupe.student.length - 1].name %>
                 </p>
+                
                 <p> When : <%- groups[i].nGroupe.deadline %></p>
             <%}%>
     <form action="/groups" method="post">
