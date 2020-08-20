@@ -9,13 +9,12 @@
 .head {
 	display: flex;
 	justify-content: space-around;
-	border-bottom: black 2px solid;
 
 	.nav {
-		width: 20vw;
+		width: 600px;
 		display: flex;
 		justify-content: space-around;
-		text-align: right;
+		text-align: center;
 
 		.navDiv {
 			list-style: none;

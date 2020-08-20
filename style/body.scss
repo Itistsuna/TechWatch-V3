@@ -4,19 +4,20 @@ body {
 	align-items: center;
 	margin: 20px;
 	font-family: 'IBM Plex Serif', serif;
-    background-color: #ebecf1;
+    background: url(images/mountain-5431950_1920.png);
     
         form {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: white;
+            background-color: rgba($color: #ffffff, $alpha: 0.5);
             margin-top: 100px;
             padding: 15px;
-            border: 2px solid #4b5d67;
-            border-radius: 1s0px;
-            width: 50vw;
+            border: 1px solid #4b5d67;
+            border-radius: 10px;
+            width: 700px;
+
 
                 .textStudent {
                     text-align: center;
@@ -33,7 +34,6 @@ body {
 
                         li {
                             font-weight: lighter;
-                            border: 1px solid white;
                             padding: 5px;
                             width: 20vw;
                         };
@@ -64,25 +64,22 @@ body {
             }
 
             main {
-                text-align: center ;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                background-color: white;
+                background-color: rgba($color: #ffffff, $alpha: 0.5);
                 margin-top: 100px;
                 padding: 15px;
-                border: 2px solid #4b5d67;
+                border: 1px solid #4b5d67;
                 border-radius: 10px;
-                width: 50vw;
+                width: 700px;
 
                 .nextTech, .pastTech {
-                    padding-left: 0px;
+                    justify-content: center;
                     list-style: none;
                     text-align: center;
-                    font-weight: lighter;
-                    width: 400px;
-                    margin: 15px;
+                    width: 325px;
                 }
             }
 

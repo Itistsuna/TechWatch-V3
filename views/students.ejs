@@ -28,7 +28,7 @@
             <% } %>
         </ul>
 
-        <input type="text" name="name" placeholder="Name" /> 
+        <input type="text" name="name" placeholder="Name" /> <br>
         <input type="submit" value="Add"><br>
     </form>
         <form action="/students/delete" method="POST">
@@ -39,7 +39,7 @@
                     <option value="<%- element.name %>"><%- element.name %> </option>
                 <%});%>
                 <%}%>
-            </select>
+            </select><br>
             <input type="submit" value="Supprimer">
         
     </form>

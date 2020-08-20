@@ -11,17 +11,16 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  border-bottom: black 2px solid;
 }
 
 .head .nav {
-  width: 20vw;
+  width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  text-align: right;
+  text-align: center;
 }
 
 .head .nav .navDiv {

@@ -38,7 +38,7 @@ async function etudiantTrié() {
 	etudiantPris = []
 	let etudiants = await reading()
 	let groupe = await readingGroups()
-	
+	// console.log(etudiants);
 	for (i = 0; i < etudiants.length; i++) {
 		for (let index = 0; index < groupe.length; index++) {
 			for (let nIndex = 0; nIndex < groupe[index].nGroupe.student.length; nIndex++) {
@@ -53,14 +53,17 @@ async function etudiantTrié() {
 				}
 			}
 		}
-		return etudiants
+		// console.log(etudiants);
 	}
+	return etudiants
+
 }
 // REQUETE GET STUDENT ------------------------------------------------------------------------------
 
 app.get('/students', async function(req, res) {
 	let students = await etudiantTrié();
 	let tab = [];	
+	console.log(etudiantPris);
 	if(students !== undefined){
 		for (let i = 0; i < students.length; i++) {
 			tab.push(students[i].name);

@@ -18,8 +18,9 @@
             <div class="navDiv"><a href="http://localhost:3000/historique">Historique</a></div>
         </nav>
     </header>
-    <h1 class="textGroups">List of groups</h1>
+
     <form action="/groups" method="post">
+    <h1 class="textGroups">List of groups</h1>
         <%groups.forEach((element) => {%>
         <%year = element.nGroupe.deadline.getFullYear();%>
         <%month = element.nGroupe.deadline.getMonth() + 1;%>
