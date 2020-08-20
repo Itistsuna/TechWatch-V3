@@ -35,23 +35,40 @@
                 <%}%>
                 <%element.nGroupe.deadline = (year + '-' + month + '-' + dt);%>
                 <%});%>
-            <%for(var i = 0 ; i < 2 ; i++) {%>
-                <h3><%- groups[i].nGroupe.subject %></h3>
+                <% if (groups.length >= 1) {%>
+                    <h3><%- groups[0].nGroupe.subject %></h3>
                     <p>Students affiliate : 
-                        <% for (let index = 0; index <groups[i].nGroupe.student.length - 1; index++) {%>
-                            <%- groups[i].nGroupe.student[index].name %>  - - -  
+                        <% for (let index = 0; index <groups[0].nGroupe.student.length - 1; index++) {%>
+                            <%- groups[0].nGroupe.student[index].name %>  - - -  
                         <%}%>
-                        <%- groups[i].nGroupe.student[groups[i].nGroupe.student.length - 1].name %>
+                        <%- groups[0].nGroupe.student[groups[0].nGroupe.student.length - 1].name %>
                     </p>
-                    <p> When : <%- groups[i].nGroupe.deadline %></p>
+                    
+                    <p> When : <%- groups[0].nGroupe.deadline %></p>
+            <%}%>
+            <% if (groups.length >= 2) {%>           
+                    <h3><%- groups[1].nGroupe.subject %></h3>
+                    <p>Students affiliate : 
+                        <% for (let index = 0; index <groups[1].nGroupe.student.length - 1; index++) {%>
+                            <%- groups[1].nGroupe.student[index].name %>  - - -  
+                        <%}%>
+                        <%- groups[1].nGroupe.student[groups[1].nGroupe.student.length - 1].name %>
+                    </p>
+                    
+                    <p> When : <%- groups[1].nGroupe.deadline %></p>
                 <%}%>
+                
+                
         </div>
         <div class="containerStudent">
             <p>List of students they will must do a tech-watch soon:</p>
             <ol>
-                <% students.forEach(element => {%>
-                    <li><%- element.name%></li>
-                <%});%>
+                
+                <% if(students !== undefined){%>
+                    <% students.forEach(element => {%>
+                        <li><%- element.name%></li>
+                    <%});%>
+                <%}%>
             </ol>
         </div>
     </main>

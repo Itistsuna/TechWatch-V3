@@ -34,7 +34,7 @@
         <form action="/students/delete" method="POST">
             <select name="name" >
                 <label>Nom à supprimer</label>
-                <%if (etudiantPris !== []) {%>
+                <%if (etudiantPris.length) {%>
                     <%etudiantPris.forEach(element => {%>
                     <option value="<%- element.name %>"><%- element.name %> </option>
                 <%});%>

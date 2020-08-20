@@ -38,9 +38,16 @@ async function etudiantTrié() {
 	etudiantPris = []
 	let etudiants = await reading()
 	let groupe = await readingGroups()
+	
 	for (i = 0; i < etudiants.length; i++) {
 		for (let index = 0; index < groupe.length; index++) {
 			for (let nIndex = 0; nIndex < groupe[index].nGroupe.student.length; nIndex++) {
+				console.log(i);
+				console.log(groupe[index].nGroupe.student[nIndex].name);
+				console.log(etudiants[nIndex].name);
+				console.log(etudiants[nIndex].name == groupe[index].nGroupe.student[nIndex].name);
+
+				console.log('------------------------------------------------------------------------------------');
 				if (etudiants.length == 0) {
 					console.log("Il n'y a plus d'étudiant");
 				} else if (etudiants[i].name == groupe[index].nGroupe.student[nIndex].name) {
@@ -48,24 +55,28 @@ async function etudiantTrié() {
 					etudiants.splice(i, 1);
 					if (i != 0) {
 						i = i - 1;
+						nIndex = 0
+
 						break;
 					} else {
 						i = 0;
+						nIndex = 0
 						break;
 					}
+					
 				}
 			}
 		}
 		return etudiants
 	}
 }
-
+etudiantTrié()
 // REQUETE GET STUDENT ------------------------------------------------------------------------------
 
 app.get('/students', async function(req, res) {
 	let students = await etudiantTrié();
 	let tab = [];	
-	if(students !== [])	{
+	if(students !== undefined){
 		for (let i = 0; i < students.length; i++) {
 			tab.push(students[i].name);
 		}
