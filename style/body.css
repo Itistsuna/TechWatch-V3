@@ -30,7 +30,7 @@ body form {
           align-items: center;
   background-color: white;
   margin-top: 100px;
-  padding: 20px;
+  padding: 15px;
   border: 2px solid #4b5d67;
   border-radius: 1s0px;
   width: 50vw;
@@ -77,5 +77,68 @@ body form ::-ms-input-placeholder {
 
 body form ::placeholder {
   text-align: center;
+}
+
+body form p {
+  padding-left: 0px;
+  list-style: none;
+  text-align: center;
+  font-weight: lighter;
+  padding: 5px;
+  width: 20vw;
+}
+
+body h2, body h3 {
+  text-align: center;
+}
+
+body main {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  margin-top: 100px;
+  padding: 15px;
+  border: 2px solid #4b5d67;
+  border-radius: 10px;
+  width: 50vw;
+}
+
+body main .nextTech, body main .pastTech {
+  padding-left: 0px;
+  list-style: none;
+  text-align: center;
+  font-weight: lighter;
+  width: 400px;
+  margin: 15px;
+}
+
+body .copyright {
+  margin-top: 30px;
+  border: black 1px solid;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+body .groupe {
+  padding-left: 0px;
+  list-style: none;
+  text-align: center;
+  font-weight: lighter;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  width: 20vw;
 }
 /*# sourceMappingURL=body.css.map */

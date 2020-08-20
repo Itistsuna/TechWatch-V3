@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technology-Watch Assignator</title>
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="body.css">
 </head>
 <body>
     <h1 class="titre">My Tech-Watch Assignator</h1>
@@ -18,11 +19,12 @@
     <main>
         <div class="containerPresentation">
             <h2>Welcome tech-watch user !</h2>
-            <p>On this page you could take a look to the next tech-watch we will assist. You can find witch students will have to do the next presentation and when.</p><br>
-            <p>Also, as you can see, above this section there is a menu. This menu offer you diverse options like: take a look about the tech-watch we had already assist;  see the list of students availaible for do a tech-watch; a page for create the next tech-watch.</p><br>
+            <p>On this page you could take a look to the next tech-watch we will assist. You can find witch students will have to do the next presentation and when.</p>
+            <p>Also, as you can see, above this section there is a menu. This menu offer you diverse options like: take a look about the tech-watch we had already assist;  see the list of students availaible for do a tech-watch; a page for create the next tech-watch.</p>
             <p>Don’t be shy and try to go on diverses part of the website !</p>
         </div>
         <div class="containerGroupe">
+            <section class="groupe">
             <%groups.forEach((element) => {%>
                 <%year = element.nGroupe.deadline.getFullYear();%>
                 <%month = element.nGroupe.deadline.getMonth() + 1;%>
@@ -57,11 +59,11 @@
                     
                     <p> When : <%- groups[1].nGroupe.deadline %></p>
                 <%}%>
-                
+            </section>
                 
         </div>
         <div class="containerStudent">
-            <p>List of students they will must do a tech-watch soon:</p>
+            <strong><p>List of students they will must do a tech-watch soon:</p></strong>
             <ol>
                 
                 <% if(students !== undefined){%>

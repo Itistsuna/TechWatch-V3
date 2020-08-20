@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historique ( Tech-Watch Assignator )</title>
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="body.css">
 </head>
 
 <body>
@@ -20,6 +21,7 @@
     <main>
         <div class="nextTech">
             <h2>Next Tech-Watch</h2>
+                <section class="groupe">
             <% const nDate = new Date();%>
             <%groups.forEach(element => {%>
             <%if (nDate < element.nGroupe.deadline) {%>
@@ -43,9 +45,11 @@
             <p>When : <%- element.nGroupe.deadline%></p>
             <%}%>
                     <%});%>
+                </section>
         </div>
-        <div class="pastTech">
+        <div class="pastTech">  
             <h2>Past Tech</h2>
+            <section class="groupe">
             <%groups.forEach(element => {%>
             <% if (nDate > element.nGroupe.deadline){ %>
             <h3><%- element.nGroupe.subject %></h3>
@@ -67,18 +71,18 @@
              	    <% element.nGroupe.deadline = (year + '-' + month + '-' + dt);%>
             <p>When : <%- element.nGroupe.deadline%></p>
             <%}%>
-                </div>
             <%})%>
+        </section>
+    </div>
 
-
-    </main>
+            </main>
     <footer>
         <div class="copyright">
-            <p>Copyright: Alban Meurice & Thomas Jamais</p>
+            <p><strong>Copyright:</strong> Arnaud | Camille</p>
             <div class="container">
-                <p class="contact">Contact:</p>
-                <p class="contact1">korvin.meurice@gmail.com</p>
-                <p class="contact2">thomas.jamais95@gmail.com</p>
+                <strong><p class="contact">Contact:</p></strong>
+                <p class="contact1">arnaudg9806@gmail.com</p>
+                <p class="contact2">vcamille@free.fr</p>
             </div>
         </div>
     </footer>
