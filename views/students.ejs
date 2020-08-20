@@ -5,33 +5,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projet TechWatch-V3</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="body.css">
 </head>
 
 <body>
-    <header>
-        <h1>My Tech-Watch Assignator</h1>
-        <nav>
-            <div><a href="http://localhost:3000/">Home</a></div>
-            <div><a href="http://localhost:3000/groups">Tech Watch Assignation</a></div>
-            <div><a href="http://localhost:3000/historique">Historique</a></div>
+    <h1 class="titre">My Tech-Watch Assignator</h1>
+    <header class="head">
+        <nav class="nav">
+            <div class="navDiv"><a href="http://localhost:3000/">Home</a></div>
+            <div class="navDiv"><a href="http://localhost:3000/groups">Tech Watch Assignation</a></div>
+            <div class="navDiv"><a href="http://localhost:3000/historique">Historique</a></div>
         </nav>
     </header>
-    <h1 class="textStudent">List of students</h1>
 
-    <ul>
-        <%for(var i = 0 ; i < students.length ; i++) {%>
-
-        <li><%= students[i] %></li>
-
-        <% } %>
-    </ul>
     <form action="/students" method="POST">
-        <input type="text" name="name" placeholder="name" /> <br />
-        <input type="submit" value="add">
+
+        <h1 class="textStudent">List of students</h1>
+        <ul>
+            <%console.log(students)%>
+            <% if (students != []) { %>
+            <%for(var i = 0 ; i < students.length ; i++) {%>
+            <li><%= students[i] %></li>
+            <% } %>
+            <% } %>
+        </ul>
+
+        <input type="text" name="name" placeholder="Name" /> 
+        <input type="submit" value="Add"><br>
     </form>
-    <form action="/students/delete" method="POST">
-        <input type="text" name="name" placeholder="name" /> <br />
-        <input type="submit" value="Supprimer">
+        <form action="/students/delete" method="POST">
+            <input type="text" name="name" placeholder="Name" /> 
+            <input type="submit" value="Supprimer">
+        
     </form>
 </body>
 

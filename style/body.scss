@@ -1,0 +1,63 @@
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px;
+	font-family: 'IBM Plex Serif', serif;
+    background-color: #ebecf1;
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            margin-top: 100px;
+            padding: 20px;
+            border: 2px solid #4b5d67;
+            border-radius: 1s0px;
+            width: 50vw;
+
+                .textStudent {
+                    text-align: center;
+                };
+
+                .textGroups {
+                    text-align: center;
+                };
+
+                ul {
+                    padding-left: 0px;
+                    list-style: none;
+                    text-align: center;
+
+                        li {
+                            font-weight: lighter;
+                            border: 1px solid white;
+                            padding: 5px;
+                            width: 20vw;
+                        };
+                };
+
+                input {
+                    border-radius: 13px;
+                    width: 10vw;
+                    height: 3vh;
+                }
+                
+                ::placeholder {
+                    text-align: center;
+                }
+
+        };
+};
+
+
+
+
+
+
+
+
+
+

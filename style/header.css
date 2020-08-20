@@ -1,0 +1,43 @@
+.titre {
+  text-transform: capitalize;
+  font-size: 40px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-bottom: black 2px solid;
+}
+
+.head .nav {
+  width: 20vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: right;
+}
+
+.head .nav .navDiv {
+  list-style: none;
+  border: none;
+}
+
+.head .nav .navDiv a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: black;
+}
+
+.head .nav .navDiv a:hover {
+  text-decoration: underline;
+  color: #f37121;
+}
+/*# sourceMappingURL=header.css.map */

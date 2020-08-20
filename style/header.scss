@@ -1,0 +1,37 @@
+.titre {
+	text-transform: capitalize;
+	font-size: 40px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+
+.head {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: black 2px solid;
+
+	.nav {
+		width: 20vw;
+		display: flex;
+		justify-content: space-around;
+		text-align: right;
+
+		.navDiv {
+			list-style: none;
+			border: none;
+		}
+
+		.navDiv a {
+			text-decoration: none;
+			text-transform: capitalize;
+			font-weight: bold;
+			color: black;
+		}
+
+		.navDiv a:hover {
+			text-decoration: underline;
+			color: #f37121;
+		}
+	}
+}

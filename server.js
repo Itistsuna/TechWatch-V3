@@ -5,21 +5,24 @@ const alert = require('alert');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(express.static(__dirname + '/style'));
 // FUNCTION FETCH  ------------------------------------------------------------------------------
 
+// Function qui permet de recupérer la collection Students
 async function reading() {
 	let read = await fetch('http://localhost:8080/Students');
 	let respons = await read.json();
 	return respons;
 }
 
+// Function qui permet de recupérer la collection Groups
 async function readingGroups() {
 	let read = await fetch('http://localhost:8080/Groups');
 	let respons = await read.json();
 	return respons;
 }
 
+// Function qui permet de transformer les dates en format "string" en format "Date"
 async function date() {
 	let group = await readingGroups();
 	group.forEach((element) => {
@@ -29,6 +32,7 @@ async function date() {
 	return group;
 }
 
+// Function qui permet de trier les students pour ne pas qu'ils soient choisies deux fois
 async function etudiantTrié() {
 	let etudiants = await reading()
 	let groupe = await readingGroups()
@@ -59,8 +63,12 @@ async function etudiantTrié() {
 app.get('/students', async function(req, res) {
 	let students = await etudiantTrié();
 	let tab = [];
-	for (let i = 0; i < students.length; i++) {
-		tab.push(students[i].name);
+	console.log(students = []);
+	if (students != []) {
+		
+		for (let i = 0; i < students.length; i++) {
+			tab.push(students[i].name);
+		}
 	}
 	res.render('students.ejs', { students: tab });
 });

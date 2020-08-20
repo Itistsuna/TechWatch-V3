@@ -1,0 +1,81 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px;
+  font-family: 'IBM Plex Serif', serif;
+  background-color: #ebecf1;
+}
+
+body form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  margin-top: 100px;
+  padding: 20px;
+  border: 2px solid #4b5d67;
+  border-radius: 1s0px;
+  width: 50vw;
+}
+
+body form .textStudent {
+  text-align: center;
+}
+
+body form .textGroups {
+  text-align: center;
+}
+
+body form ul {
+  padding-left: 0px;
+  list-style: none;
+  text-align: center;
+}
+
+body form ul li {
+  font-weight: lighter;
+  border: 1px solid white;
+  padding: 5px;
+  width: 20vw;
+}
+
+body form input {
+  border-radius: 13px;
+  width: 10vw;
+  height: 3vh;
+}
+
+body form ::-webkit-input-placeholder {
+  text-align: center;
+}
+
+body form :-ms-input-placeholder {
+  text-align: center;
+}
+
+body form ::-ms-input-placeholder {
+  text-align: center;
+}
+
+body form ::placeholder {
+  text-align: center;
+}
+/*# sourceMappingURL=body.css.map */
