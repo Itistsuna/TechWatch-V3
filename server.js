@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const fetch = require('node-fetch');
 const alert = require('alert');
+let etudiantPris = []
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,6 +35,7 @@ async function date() {
 
 // Function qui permet de trier les students pour ne pas qu'ils soient choisies deux fois
 async function etudiantTrié() {
+	etudiantPris = []
 	let etudiants = await reading()
 	let groupe = await readingGroups()
 	for (i = 0; i < etudiants.length; i++) {
@@ -42,6 +44,7 @@ async function etudiantTrié() {
 				if (etudiants.length == 0) {
 					console.log("Il n'y a plus d'étudiant");
 				} else if (etudiants[i].name == groupe[index].nGroupe.student[nIndex].name) {
+					etudiantPris.push(etudiants[i])
 					etudiants.splice(i, 1);
 					if (i != 0) {
 						i = i - 1;
@@ -55,22 +58,19 @@ async function etudiantTrié() {
 		}
 		return etudiants
 	}
-	console.log(etudiants);
 }
 
 // REQUETE GET STUDENT ------------------------------------------------------------------------------
 
 app.get('/students', async function(req, res) {
 	let students = await etudiantTrié();
-	let tab = [];
-	console.log(students = []);
-	if (students != []) {
-		
+	let tab = [];	
+	if(students !== [])	{
 		for (let i = 0; i < students.length; i++) {
 			tab.push(students[i].name);
 		}
 	}
-	res.render('students.ejs', { students: tab });
+	res.render('students.ejs', { students: tab , etudiantPris: etudiantPris});
 });
 
 // REQUETE POST STUDENT ------------------------------------------------------------------------------

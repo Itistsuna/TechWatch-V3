@@ -23,11 +23,8 @@
 
         <h1 class="textStudent">List of students</h1>
         <ul>
-            <%console.log(students)%>
-            <% if (students != []) { %>
             <%for(var i = 0 ; i < students.length ; i++) {%>
-            <li><%= students[i] %></li>
-            <% } %>
+                <li><%- students[i] %></li>
             <% } %>
         </ul>
 
@@ -35,7 +32,14 @@
         <input type="submit" value="Add"><br>
     </form>
         <form action="/students/delete" method="POST">
-            <input type="text" name="name" placeholder="Name" /> 
+            <select name="name" >
+                <label>Nom à supprimer</label>
+                <%if (etudiantPris !== []) {%>
+                    <%etudiantPris.forEach(element => {%>
+                    <option value="<%- element.name %>"><%- element.name %> </option>
+                <%});%>
+                <%}%>
+            </select>
             <input type="submit" value="Supprimer">
         
     </form>
