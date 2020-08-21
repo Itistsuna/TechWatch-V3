@@ -6,12 +6,22 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 20px;
   font-family: 'Georgia', serif;
   background: url(images/mountain-5431950_1920.png);
+}
+
+body .containerPresentation {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+body .containerPresentation h2 {
+  margin-bottom: 20px;
 }
 
 body form {
@@ -36,7 +46,48 @@ body form {
   width: 700px;
 }
 
+body form select {
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(125deg, gray 50%, transparent 50%), radial-gradient(#ddd 70%, transparent 72%);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - .7em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 35px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  color: #333333;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 1px solid #bbbbbb;
+  cursor: pointer;
+}
+
+body form select:focus {
+  background-image: linear-gradient(45deg, white 50%, transparent 50%), linear-gradient(135deg, transparent 50%, white 50%), radial-gradient(gray 70%, transparent 72%);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - .7em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+body form select:hover {
+  outline: none;
+  border: 1px solid #000000;
+}
+
+body form select option {
+  background: #ffffff;
+  text-align: center;
+}
+
+body form select option:hover {
+  background: #bbbbbb;
+}
+
 body form .textStudent {
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -57,9 +108,25 @@ body form ul li {
 }
 
 body form input {
-  border-radius: 13px;
-  width: 10vw;
+  text-align: center;
+  border-radius: 4px;
+  width: 20vw;
   height: 3vh;
+  margin-bottom: 10px;
+  color: #4b5d67;
+}
+
+body form input[type='submit'] {
+  -webkit-box-shadow: 0px -1px 4px 2px #bbbbbb;
+          box-shadow: 0px -1px 4px 2px #bbbbbb;
+  border-radius: 5px;
+  border: 1px solid #eeeeee;
+  display: inline-block;
+  cursor: pointer;
+  color: #4b5d67;
+  font-family: Arial;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #4b5d67;
 }
 
 body form ::-webkit-input-placeholder {
@@ -114,12 +181,9 @@ body main {
 }
 
 body main .nextTech, body main .pastTech {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   list-style: none;
   text-align: center;
-  width: 325px;
+  width: 40vw;
 }
 
 body .copyright {
@@ -130,13 +194,27 @@ body .copyright {
 }
 
 body .groupe {
+  margin-bottom: 20px;
   padding-left: 0px;
   list-style: none;
   text-align: center;
   font-weight: lighter;
-  border: 5px solid black;
+  border: 2px solid black;
   border-radius: 10px;
   padding: 5px;
-  width: 20vw;
+  width: 400px;
+}
+
+body .groupe2 {
+  margin-left: 18%;
+  margin-bottom: 20px;
+  padding-left: 0px;
+  list-style: none;
+  text-align: center;
+  font-weight: lighter;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  width: 400px;
 }
 /*# sourceMappingURL=body.css.map */

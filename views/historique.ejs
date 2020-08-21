@@ -21,7 +21,7 @@
     <main>
         <div class="nextTech">
             <h2>Next Tech-Watch</h2>
-                <section class="groupe">
+                <section class="groupe2">
             <% const nDate = new Date();%>
             <%groups.forEach(element => {%>
             <%if (nDate < element.nGroupe.deadline) {%>
@@ -49,7 +49,7 @@
         </div>
         <div class="pastTech">  
             <h2>Past Tech</h2>
-            <section class="groupe">
+            <section class="groupe2">
             <%groups.forEach(element => {%>
             <% if (nDate > element.nGroupe.deadline){ %>
             <h3><%- element.nGroupe.subject %></h3>

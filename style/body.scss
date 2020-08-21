@@ -1,11 +1,18 @@
 body {
 	display: flex;
-	flex-direction: column;
+    flex-direction: column;
+    text-align: center;
 	align-items: center;
 	margin: 20px;
 	font-family: 'Georgia', serif;
     background: url(images/mountain-5431950_1920.png);
-    
+    .containerPresentation{
+        h2{
+            margin-bottom: 20px;
+        }
+        text-align: center;
+        margin-bottom: 20px;
+    }
         form {
             display: flex;
             flex-direction: column;
@@ -17,9 +24,61 @@ body {
             border: 1px solid #4b5d67;
             border-radius: 10px;
             width: 700px;
-
+                select{
+                    background-image:
+                      linear-gradient(45deg, transparent 50%, gray 50%),
+                      linear-gradient(125deg, gray 50%, transparent 50%),
+                      radial-gradient(#ddd 70%, transparent 72%);
+                    background-position:
+                      calc(100% - 20px) calc(1em + 2px),
+                      calc(100% - 15px) calc(1em + 2px),
+                      calc(100% - .7em) .5em;
+                    background-size:
+                      5px 5px,
+                      5px 5px,
+                      1.5em 1.5em;
+                    background-repeat: no-repeat;  
+                    width: 200px;
+                    height: 35px;       
+                    appearance: none;
+                    border-radius: 5px;
+                    background-color: #eeeeee;
+                    color: #333333;
+                    margin-bottom: 10px;
+                    text-align: center;
+                    border: 1px solid #bbbbbb;
+                    cursor: pointer;
+                  &:focus {
+                    background-image:
+                      linear-gradient(45deg, white 50%, transparent 50%),
+                      linear-gradient(135deg, transparent 50%, white 50%),
+                      radial-gradient(gray 70%, transparent 72%);
+                    background-position:
+                      calc(100% - 15px) 1em,
+                      calc(100% - 20px) 1em,
+                      calc(100% - .7em) .5em;
+                    background-size:
+                      5px 5px,
+                      5px 5px,
+                      1.5em 1.5em;
+                    background-repeat: no-repeat;
+                  }
+                    
+                    &:hover{
+                        outline: none;
+                        border: 1px solid #000000;
+                    }
+                    option{
+                        background: #ffffff;
+                        text-align: center;
+                        &:hover{
+                            background: #bbbbbb;
+                        }
+                    }
+                }
 
                 .textStudent {
+                    margin-bottom: 20px;
                     text-align: center;
                 };
 
@@ -40,11 +99,24 @@ body {
                 };
 
                 input {
-                    border-radius: 13px;
-                    width: 10vw;
+                    text-align: center;
+                    border-radius: 4px;
+                    width: 20vw;
                     height: 3vh;
+                    margin-bottom: 10px;
+	                color:#4b5d67;
                 }
-                
+                input[type='submit']{
+                    box-shadow: 0px -1px 4px 2px #bbbbbb;
+	                border-radius:5px;
+	                border:1px solid #eeeeee;
+	                display:inline-block;
+	                cursor:pointer;
+	                color:#4b5d67;
+	                font-family:Arial;
+	                text-decoration:none;
+	                text-shadow:0px -1px 0px #4b5d67;
+                }
                 ::placeholder {
                     text-align: center;
                 }
@@ -76,10 +148,9 @@ body {
                 width: 700px;
 
                 .nextTech, .pastTech {
-                    justify-content: center;
                     list-style: none;
                     text-align: center;
-                    width: 325px;
+                    width: 40vw;
                 }
             }
 
@@ -91,14 +162,27 @@ body {
            }
 
            .groupe {
+            margin-bottom: 20px;
             padding-left: 0px;
             list-style: none;
             text-align: center;
             font-weight: lighter;
-            border: 5px solid black;
+            border: 2px solid black;
             border-radius: 10px;
             padding: 5px;
-            width: 20vw;
+            width: 400px;
+           }
+           .groupe2 {
+            margin-left: 18%;
+            margin-bottom: 20px;
+            padding-left: 0px;
+            list-style: none;
+            text-align: center;
+            font-weight: lighter;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            width: 400px;
            }
                 
 };
