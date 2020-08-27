@@ -4,8 +4,13 @@ body {
     text-align: center;
 	align-items: center;
 	margin: 20px;
-	font-family: 'Georgia', serif;
+    font-family: 'Georgia', serif;
+    font-size: 15px;
     background: url(images/mountain-5431950_1920.png);
+    li{
+        list-style: none;
+        margin-bottom: 5px;
+    }
     .containerPresentation{
         h2{
             margin-bottom: 20px;

@@ -72,13 +72,17 @@ app.get('/students', async function(req, res) {
 // REQUETE POST STUDENT ------------------------------------------------------------------------------
 
 app.post('/students', async (req, res) => {
-	fetch('http://localhost:8080/Students', {
+	if(req.body.name != ''){
+		fetch('http://localhost:8080/Students', {
 		method: 'post',
 		headers: {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({ name: req.body.name })
 	});
+	}else{
+		alert('Nom manquant')
+	}
 	res.redirect('http://localhost:3000/students');
 });
 
@@ -105,7 +109,7 @@ app.get('/groups', async function(req, res) {
 // REQUETE POST GROUP ------------------------------------------------------------------------------
 app.post('/groups', async function(req, res) {
 	if (req.body.subject != '') {
-		if (req.body.student != '') {
+		if (req.body.student != '' && isNaN(parseInt(req.body.student)) ===  false)  {
 			if (req.body.deadline != '') {
 				let students = await etudiantTrié();
 				let name = [];
@@ -135,12 +139,15 @@ app.post('/groups', async function(req, res) {
 				res.redirect('http://localhost:3000/groups');
 			} else {
 				alert('Deadline manquante');
+				res.redirect('http://localhost:3000/groups');
 			}
 		} else {
-			alert("Nombres d'étudiants manquants");
+			alert("Veuillez inserer un nombres d'étudiants");
+			res.redirect('http://localhost:3000/groups');
 		}
 	} else {
 		alert('Sujet manquant');
+		res.redirect('http://localhost:3000/groups');
 	}
 });
 // GET HISTORIQUE  ------------------------------------------------------------------------------

@@ -25,13 +25,13 @@ bdd()
 
 app.post('/students', async (req, res) => {
     try {
-        await client.db('TechWatch-V3').collection('Students').insertOne({
-            name: req.body.name
-        })
-        res.json({
-            "msg": "recue"
-        })
-
+            await client.db('TechWatch-V3').collection('Students').insertOne({
+                name: req.body.name
+            })
+            res.json({
+                "msg": "recue"
+            })
+    
     } catch (error) {
         console.log(error)
     }
@@ -82,16 +82,16 @@ app.delete('/students', async (req,res)=> {
 
 app.post('/groups', async(req,res)=>{
     try {
-        class Groups {
-            constructor(){
-                this.subject = req.body.subject
-                this.deadline = req.body.deadline
-                this.student = req.body.student
+            class Groups {
+                constructor(){
+                    this.subject = req.body.subject
+                    this.deadline = req.body.deadline
+                    this.student = req.body.student
+                }
             }
-        }
-        let nGroupe = new Groups
-        client.db('TechWatch-V3').collection('Groups').insertOne({nGroupe})
-        res.send('Le groupe a bien été enregistré')
+            let nGroupe = new Groups
+            client.db('TechWatch-V3').collection('Groups').insertOne({nGroupe})
+            res.send('Le groupe a bien été enregistré')
     } catch (error) {
         console.log(error);
     }
